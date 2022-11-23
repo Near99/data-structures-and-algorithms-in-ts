@@ -26,19 +26,32 @@ class ListNode<T> {
 
 class LinkedList<T> {
     private head_: ListNode<T> | null;
+    private tail_: ListNode<T> | null;
 
     constructor() {
         this.head_ = null;
+        this.tail_ = null;
     }
 
     public insert(value: T) {
         const newNode = new ListNode(value, null);
         if (this.head_ === null) {
             this.head_ = newNode;
+            this.tail_ = newNode;
         } else {
             newNode.setNext(this.head_);
             this.head_ = newNode;
         }
+    }
+
+    public insert_back(value: T) {
+        const newNode = new ListNode(value, null);
+        if (this.tail_ == null) {
+            this.head_ = newNode;
+        } else {
+            this.tail_.setNext(newNode);
+        }
+        this.tail_ = newNode;
     }
 
     public print() {
@@ -47,11 +60,14 @@ class LinkedList<T> {
             console.log(temp.getValue());
             temp = temp.getNext();
         }
+        console.log(this.head_);
     }
 }
 
-const list = new LinkedList();
-for (let i = 0; i < 100; i++) {
-    list.insert(i);
-}
-list.print();
+(function test() {
+    const list = new LinkedList<number>();
+    for (let i = 0; i < 5; i++) {
+        list.insert_back(i);
+    }
+    list.print();
+})();
