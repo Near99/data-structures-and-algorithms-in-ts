@@ -54,6 +54,19 @@ class LinkedList<T> {
         this.tail_ = newNode;
     }
 
+    public reverse() {
+        let pre: ListNode<T> | null = null,
+            curr = this.head_,
+            next: ListNode<T> | null = null;
+        while (curr) {
+            next = curr.getNext();
+            curr.setNext(pre);
+            pre = curr;
+            curr = next;
+        }
+        this.head_ = pre;
+    }
+
     public print() {
         let temp = this.head_;
         while (temp) {
@@ -67,7 +80,8 @@ class LinkedList<T> {
 (function test() {
     const list = new LinkedList<number>();
     for (let i = 0; i < 5; i++) {
-        list.insert_back(i);
+        list.insert(i);
     }
+    list.reverse();
     list.print();
 })();
