@@ -33,7 +33,7 @@ class LinkedList<T> {
         this.tail_ = null;
     }
 
-    public insert(value: T) {
+    public insertFront(value: T) {
         const newNode = new ListNode(value, null);
         if (this.head_ === null) {
             this.head_ = newNode;
@@ -44,7 +44,7 @@ class LinkedList<T> {
         }
     }
 
-    public insert_back(value: T) {
+    public insertBack(value: T) {
         const newNode = new ListNode(value, null);
         if (this.tail_ == null) {
             this.head_ = newNode;
@@ -80,7 +80,7 @@ class LinkedList<T> {
 (function test() {
     const list = new LinkedList<number>();
     for (let i = 0; i < 5; i++) {
-        list.insert(i);
+        list.insertFront(i);
     }
     list.reverse();
     list.print();
