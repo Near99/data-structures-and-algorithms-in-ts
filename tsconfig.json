@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        /* Language and Environment */
+        "target": "es2016",
+
+        /* Modules */
+        "module": "commonjs",
+        "outDir": "./out",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+
+        /* Type Checking */
+        "strict": true /* Enable all strict type-checking options. */
+    }
+}
