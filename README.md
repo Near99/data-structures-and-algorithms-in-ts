@@ -1,4 +1,4 @@
-# Practical Data structures and Algorithms in C++
+# Practical Data structures and Algorithms in TypeScript
 
 ## Linked List
 
