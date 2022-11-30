@@ -54,6 +54,38 @@ class LinkedList<T> {
         this.tail_ = newNode;
     }
 
+    public removeFront() {
+        if (this.head_ === null) {
+            console.log("Empty list!");
+            return null;
+        }
+        const nodeToDelete = this.head_;
+        this.head_ = this.head_.getNext();
+        if (this.head_ === null) this.tail_ = null;
+        return nodeToDelete;
+    }
+
+    public removeEnd() {
+        if (this.tail_ === null) {
+            console.log("Empty list!");
+            return null;
+        }
+        if (this.head_ === this.tail_) {
+            // console.log(`called`);
+            const nodeToDelete = this.tail_;
+            this.head_ = this.tail_ = null;
+            return nodeToDelete;
+        }
+        let pre: ListNode<T> | null = this.head_;
+        while (pre && pre.getNext() !== this.tail_) {
+            pre = pre?.getNext();
+        }
+        const nodeToDelete = this.tail_;
+        this.tail_ = pre;
+        pre?.setNext(null);
+        return nodeToDelete;
+    }
+
     public reverse() {
         let pre: ListNode<T> | null = null,
             curr = this.head_,
@@ -65,6 +97,14 @@ class LinkedList<T> {
             curr = next;
         }
         this.head_ = pre;
+    }
+
+    public getHead() {
+        return this.head_;
+    }
+
+    public getTail() {
+        return this.tail_;
     }
 
     public print() {
@@ -81,7 +121,10 @@ class LinkedList<T> {
     const list = new LinkedList<string>();
     for (let i = 97; i <= 122; i++) {
         list.insertBack(String.fromCharCode(i));
+        console.assert(list.removeFront()?.getValue() === String.fromCharCode(i));
     }
-    // list.reverse();
-    list.print();
+    for (let i = 97; i <= 122; i++) {
+        list.insertFront(String.fromCharCode(i));
+        console.assert(list.removeEnd()?.getValue() === String.fromCharCode(i));
+    }
 })();
