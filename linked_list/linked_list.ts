@@ -73,15 +73,15 @@ class LinkedList<T> {
             console.log(temp.getValue());
             temp = temp.getNext();
         }
-        console.log(this.head_);
+        // console.log(this.head_);
     }
 }
 
 (function test() {
-    const list = new LinkedList<number>();
-    for (let i = 0; i < 5; i++) {
-        list.insertFront(i);
+    const list = new LinkedList<string>();
+    for (let i = 97; i <= 122; i++) {
+        list.insertBack(String.fromCharCode(i));
     }
-    list.reverse();
+    // list.reverse();
     list.print();
 })();
