@@ -7,19 +7,19 @@ class ListNode<T> {
         this.next_ = next;
     }
 
-    public getValue() {
+    public getValue(): T {
         return this.value_;
     }
 
-    public getNext() {
+    public getNext(): ListNode<T> | null {
         return this.next_;
     }
 
-    public setNext(next: ListNode<T> | null) {
+    public setNext(next: ListNode<T> | null): void {
         this.next_ = next;
     }
 
-    public setValue(value: T) {
+    public setValue(value: T): void {
         this.value_ = value;
     }
 }
@@ -33,7 +33,7 @@ class LinkedList<T> {
         this.tail_ = null;
     }
 
-    public insertFront(value: T) {
+    public insertFront(value: T): void {
         const newNode = new ListNode(value, null);
         if (this.head_ === null) {
             this.head_ = newNode;
@@ -44,7 +44,7 @@ class LinkedList<T> {
         }
     }
 
-    public insertBack(value: T) {
+    public insertBack(value: T): void {
         const newNode = new ListNode(value, null);
         if (this.tail_ == null) {
             this.head_ = newNode;
@@ -54,7 +54,7 @@ class LinkedList<T> {
         this.tail_ = newNode;
     }
 
-    public removeFront() {
+    public removeFront(): ListNode<T> | null {
         if (this.head_ === null) {
             console.log("Empty list!");
             return null;
@@ -65,13 +65,12 @@ class LinkedList<T> {
         return nodeToDelete;
     }
 
-    public removeEnd() {
+    public removeEnd(): ListNode<T> | null {
         if (this.tail_ === null) {
             console.log("Empty list!");
             return null;
         }
         if (this.head_ === this.tail_) {
-            // console.log(`called`);
             const nodeToDelete = this.tail_;
             this.head_ = this.tail_ = null;
             return nodeToDelete;
@@ -86,7 +85,7 @@ class LinkedList<T> {
         return nodeToDelete;
     }
 
-    public reverse() {
+    public reverse(): void {
         let pre: ListNode<T> | null = null,
             curr = this.head_,
             next: ListNode<T> | null = null;
@@ -99,21 +98,20 @@ class LinkedList<T> {
         this.head_ = pre;
     }
 
-    public getHead() {
+    public getHead(): ListNode<T> | null {
         return this.head_;
     }
 
-    public getTail() {
+    public getTail(): ListNode<T> | null {
         return this.tail_;
     }
 
-    public print() {
+    public print(): void {
         let temp = this.head_;
         while (temp) {
             console.log(temp.getValue());
             temp = temp.getNext();
         }
-        // console.log(this.head_);
     }
 }
 
