@@ -66,7 +66,7 @@ class LinkedList<T> {
     }
 
     public removeEnd(): ListNode<T> | null {
-        if (this.tail_ === null) {
+        if (this.empty()) {
             console.log("Empty list!");
             return null;
         }
@@ -83,6 +83,34 @@ class LinkedList<T> {
         this.tail_ = pre;
         pre?.setNext(null);
         return nodeToDelete;
+    }
+
+    public remove(value: T) {
+        if (this.empty()) {
+            console.log("Empty list!");
+            return null;
+        }
+        if (this.head_ && this.head_.getValue() === value) {
+            const nodeToDelete = this.head_;
+            if (this.tail_ === this.head_) {
+                this.tail_ = null;
+            }
+            this.head_ = this.head_.getNext();
+            return nodeToDelete;
+        }
+        let nodeToDelete = this.head_,
+            pre: ListNode<T> | null = null;
+        while (nodeToDelete && nodeToDelete.getValue() !== value) {
+            pre = nodeToDelete;
+            nodeToDelete = nodeToDelete.getNext();
+        }
+        if (this.tail_ && this.tail_.getValue() === value) {
+            this.tail_ = pre;
+        }
+        if (nodeToDelete && nodeToDelete.getNext() !== undefined && pre) {
+            pre.setNext(nodeToDelete.getNext());
+            return nodeToDelete;
+        }
     }
 
     public reverse(): void {
@@ -106,6 +134,10 @@ class LinkedList<T> {
         return this.tail_;
     }
 
+    public empty(): boolean {
+        return this.head_ === null;
+    }
+
     public print(): void {
         let temp = this.head_;
         while (temp) {
@@ -116,13 +148,32 @@ class LinkedList<T> {
 }
 
 (function test() {
-    const list = new LinkedList<string>();
+    const listString = new LinkedList<string>();
+    const listNumber = new LinkedList<number>();
     for (let i = 97; i <= 122; i++) {
-        list.insertBack(String.fromCharCode(i));
-        console.assert(list.removeFront()?.getValue() === String.fromCharCode(i));
+        listString.insertBack(String.fromCharCode(i));
+        console.assert(listString.removeFront()?.getValue() === String.fromCharCode(i));
     }
     for (let i = 97; i <= 122; i++) {
-        list.insertFront(String.fromCharCode(i));
-        console.assert(list.removeEnd()?.getValue() === String.fromCharCode(i));
+        listString.insertFront(String.fromCharCode(i));
+        console.assert(listString.removeEnd()?.getValue() === String.fromCharCode(i));
     }
+    for (let i = 1; i <= 10; i++) {
+        listNumber.insertBack(i);
+    }
+    console.assert(listNumber.empty() === false);
+    listNumber.remove(5);
+    listNumber.remove(6);
+    listNumber.remove(8);
+    listNumber.remove(2);
+    listNumber.remove(10);
+    listNumber.remove(9);
+    listNumber.remove(3);
+    listNumber.remove(4);
+    listNumber.print();
+    listNumber.remove(1);
+    listNumber.remove(7);
+    console.assert(listNumber.getHead() === null);
+    console.assert(listNumber.getTail() === null);
+    console.assert(listNumber.empty() === true);
 })();
