@@ -85,16 +85,14 @@ class LinkedList<T> {
         return nodeToDelete;
     }
 
-    public remove(value: T) {
+    public remove(value: T): ListNode<T> | null {
         if (this.empty()) {
             console.log("Empty list!");
             return null;
         }
         if (this.head_ && this.head_.getValue() === value) {
             const nodeToDelete = this.head_;
-            if (this.tail_ === this.head_) {
-                this.tail_ = null;
-            }
+            if (this.tail_ === this.head_) this.tail_ = null;
             this.head_ = this.head_.getNext();
             return nodeToDelete;
         }
@@ -111,6 +109,7 @@ class LinkedList<T> {
             pre.setNext(nodeToDelete.getNext());
             return nodeToDelete;
         }
+        return null;
     }
 
     public reverse(): void {
