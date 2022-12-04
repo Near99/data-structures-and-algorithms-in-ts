@@ -12,5 +12,24 @@ const bubbleSort = (arr: Array<number>) => {
     }
 };
 
-bubbleSort(inputArrB);
+/**
+ * Slightly better than no flag but still sucks.
+ */
+const bubbleSortWithFlag = (arr: Array<number>) => {
+    let isSorted = false;
+    let counter = 0;
+    while (!isSorted) {
+        isSorted = true;
+        for (let i = 0; i < arr.length - counter - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                isSorted = false;
+                const temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+    }
+};
+
+bubbleSortWithFlag(inputArrB);
 console.log(inputArrB);
