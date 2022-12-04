@@ -14,5 +14,5 @@
 ## Sorting
 
 - [x]  Bubble Sort                              - bubble sort,    Time: O(n^2), Space: O(1). Stable.
-- [x]  Insertion Sort                           - insertion sort, Time: O(n^2), Space: O(1). Not Stable.
-- [x]  Selection Sort                           - selection sort, Time: O(n^2), Space: O(1). Stable.
+- [x]  Insertion Sort                           - insertion sort, Time: O(n^2), Space: O(1). Stable.
+- [x]  Selection Sort                           - selection sort, Time: O(n^2), Space: O(1). Not Stable.
