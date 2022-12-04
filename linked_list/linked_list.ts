@@ -56,7 +56,7 @@ class LinkedList<T> {
 
     public removeFront(): ListNode<T> | null {
         if (this.head_ === null) {
-            console.log("Empty list!");
+            console.log('Empty list!');
             return null;
         }
         const nodeToDelete = this.head_;
@@ -67,7 +67,7 @@ class LinkedList<T> {
 
     public removeEnd(): ListNode<T> | null {
         if (this.empty()) {
-            console.log("Empty list!");
+            console.log('Empty list!');
             return null;
         }
         if (this.head_ === this.tail_) {
@@ -87,7 +87,7 @@ class LinkedList<T> {
 
     public remove(value: T): ListNode<T> | null {
         if (this.empty()) {
-            console.log("Empty list!");
+            console.log('Empty list!');
             return null;
         }
         if (this.head_ && this.head_.getValue() === value) {
