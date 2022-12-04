@@ -1,7 +1,7 @@
 const inputArrS = [5, 3, 10, 7, 1, 6, 9, 4, 8, 2];
 
 /**
- * Return sorted new array.
+ * Return sorted new array. Using extra space for stability.
  * Space: O(n)
  */
 const textBookEasyToRead = () => {
