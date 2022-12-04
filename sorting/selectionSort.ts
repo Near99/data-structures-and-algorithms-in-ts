@@ -1,4 +1,4 @@
-const inputArr = [5, 3, 10, 7, 1, 6, 9, 4, 8, 2];
+const inputArrS = [5, 3, 10, 7, 1, 6, 9, 4, 8, 2];
 
 /**
  * Return sorted new array.
@@ -27,7 +27,7 @@ const textBookEasyToRead = () => {
         return sortedArr;
     };
 
-    console.log(selectionSort(inputArr));
+    console.log(selectionSort(inputArrS));
 };
 
 /**
@@ -46,6 +46,6 @@ const sortInPlace = () => {
             arr[s] = temp;
         }
     };
-    selectionSort(inputArr);
-    console.log(inputArr);
+    selectionSort(inputArrS);
+    console.log(inputArrS);
 };
