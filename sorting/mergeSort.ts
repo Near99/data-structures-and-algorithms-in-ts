@@ -10,10 +10,10 @@ const merge_ = (arr: Array<number>, low: number, middle: number, high: number) =
         bufferTwoIndex = 0;
     i = low;
     while (bufferOneIndex < bufferOne.length && bufferTwoIndex < bufferTwo.length) {
-        if (bufferOne[bufferOneIndex] > bufferTwo[bufferTwoIndex]) {
-            arr[i++] = bufferTwo[bufferTwoIndex++];
-        } else {
+        if (bufferOne[bufferOneIndex] <= bufferTwo[bufferTwoIndex]) {
             arr[i++] = bufferOne[bufferOneIndex++];
+        } else {
+            arr[i++] = bufferTwo[bufferTwoIndex++];
         }
     }
     while (bufferOneIndex < bufferOne.length) {
