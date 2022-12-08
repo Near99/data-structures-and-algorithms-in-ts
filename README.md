@@ -17,4 +17,5 @@
 - [x]  Insertion Sort                           - insertion sort, Time: O(n^2), Space: O(1). Stable.
 - [x]  Selection Sort                           - selection sort, Time: O(n^2), Space: O(1). Not Stable.
 - [x]  Heap Sort                                - heap sort,      Time: O(nlogn), Space: O(1). Not Stable.
-- [x]  Merge Sort                                - merge sort,    Time: O(nlogn), Space: O(n). Stable.
+- [x]  Merge Sort                               - merge sort,     Time: O(nlogn), Space: O(n). Stable.
+- [x]  Quick Sort                               - quick sort,     Time: O(nlogn), Space: O(n). Not Stable.
