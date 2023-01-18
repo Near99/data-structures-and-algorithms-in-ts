@@ -23,4 +23,4 @@
 
 ## Graphs
 
- - [x] Shorted Path Unweighted Graph - Well I think the code is buggy...
+ - [x] Shorted Path Unweighted Graph
